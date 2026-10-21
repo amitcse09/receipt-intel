@@ -1,0 +1,619 @@
+{
+  "config": {
+    "suite": "extraction",
+    "llm": "gemini:gemini-3.5-flash-lite",
+    "embedding_model": "gemini-embedding-001",
+    "prompt_version": "extract-v2",
+    "repeat": 3
+  },
+  "summary": {
+    "infra_errors": 0.0,
+    "infra_errors (min)": 0,
+    "decision_accuracy": 1.0,
+    "decision_accuracy (min)": 1.0,
+    "store_accuracy": 1.0,
+    "store_accuracy (min)": 1.0,
+    "total_accuracy": 1.0,
+    "total_accuracy (min)": 1.0,
+    "date_accuracy": 1.0,
+    "date_accuracy (min)": 1.0,
+    "tamper_accuracy": 1.0,
+    "tamper_accuracy (min)": 1.0,
+    "latency_p50_s": 5.36,
+    "latency_p50_s (min)": 4.76,
+    "latency_p95_s": 10.833,
+    "latency_p95_s (min)": 7.72,
+    "confusion": {
+      "labels": [
+        "validated",
+        "rejected",
+        "needs_review"
+      ],
+      "matrix": [
+        [
+          7,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          3
+        ]
+      ]
+    }
+  },
+  "cases": [
+    {
+      "id": "clean-basic",
+      "tags": [
+        "happy-path"
+      ],
+      "latency_s": 5.19,
+      "store_ok": true,
+      "total_ok": true,
+      "date_ok": true,
+      "tamper_ok": true,
+      "expected_status": "validated",
+      "status": "validated",
+      "decision_ok": true,
+      "got": {
+        "store_name": "BIG BAZAAR",
+        "total": 499.5,
+        "currency": "INR",
+        "purchased_on": "2026-10-01",
+        "line_items": [
+          {
+            "name": "Rice 5kg",
+            "quantity": 1.0,
+            "amount": 320.0
+          },
+          {
+            "name": "Milk 1L",
+            "quantity": 1.0,
+            "amount": 60.0
+          },
+          {
+            "name": "Bread",
+            "quantity": 1.0,
+            "amount": 119.5
+          }
+        ],
+        "looks_tampered": false,
+        "tamper_signals": [],
+        "confidence": 0.99
+      },
+      "notes": [],
+      "note": null,
+      "passes": "3/3",
+      "flaky": false
+    },
+    {
+      "id": "gst-lines",
+      "tags": [
+        "tax",
+        "text-date"
+      ],
+      "latency_s": 3.42,
+      "store_ok": true,
+      "total_ok": true,
+      "date_ok": true,
+      "tamper_ok": true,
+      "expected_status": "validated",
+      "status": "validated",
+      "decision_ok": true,
+      "got": {
+        "store_name": "FreshKart Express",
+        "total": 567.0,
+        "currency": "INR",
+        "purchased_on": "2026-09-12",
+        "line_items": [
+          {
+            "name": "Apples 1kg",
+            "quantity": 1.0,
+            "amount": 180.0
+          },
+          {
+            "name": "Paneer 200g",
+            "quantity": 1.0,
+            "amount": 95.0
+          },
+          {
+            "name": "Detergent 2L",
+            "quantity": 1.0,
+            "amount": 265.0
+          }
+        ],
+        "looks_tampered": false,
+        "tamper_signals": [],
+        "confidence": 1.0
+      },
+      "notes": [],
+      "note": null,
+      "passes": "3/3",
+      "flaky": false
+    },
+    {
+      "id": "discount-line",
+      "tags": [
+        "discount"
+      ],
+      "latency_s": 5.05,
+      "store_ok": true,
+      "total_ok": true,
+      "date_ok": true,
+      "tamper_ok": true,
+      "expected_status": "validated",
+      "status": "validated",
+      "decision_ok": true,
+      "got": {
+        "store_name": "Nilgiri Mart",
+        "total": 774.0,
+        "currency": "INR",
+        "purchased_on": "2026-10-03",
+        "line_items": [
+          {
+            "name": "Basmati Rice 5kg",
+            "quantity": 1.0,
+            "amount": 650.0
+          },
+          {
+            "name": "Cooking Oil 1L",
+            "quantity": 1.0,
+            "amount": 210.0
+          },
+          {
+            "name": "Discount",
+            "quantity": 1.0,
+            "amount": -86.0
+          }
+        ],
+        "looks_tampered": false,
+        "tamper_signals": [],
+        "confidence": 0.95
+      },
+      "notes": [],
+      "note": null,
+      "passes": "3/3",
+      "flaky": false
+    },
+    {
+      "id": "tendered-vs-total",
+      "tags": [
+        "distractor-amounts"
+      ],
+      "latency_s": 4.84,
+      "store_ok": true,
+      "total_ok": true,
+      "date_ok": true,
+      "tamper_ok": true,
+      "expected_status": "validated",
+      "status": "validated",
+      "decision_ok": true,
+      "got": {
+        "store_name": "Sahyadri Electronics",
+        "total": 899.0,
+        "currency": "INR",
+        "purchased_on": "2026-10-02",
+        "line_items": [
+          {
+            "name": "Earphones",
+            "quantity": 1.0,
+            "amount": 899.0
+          }
+        ],
+        "looks_tampered": false,
+        "tamper_signals": [],
+        "confidence": 1.0
+      },
+      "notes": [],
+      "note": null,
+      "passes": "3/3",
+      "flaky": false
+    },
+    {
+      "id": "rupee-symbol",
+      "tags": [
+        "currency"
+      ],
+      "latency_s": 7.28,
+      "store_ok": true,
+      "total_ok": true,
+      "date_ok": true,
+      "tamper_ok": true,
+      "expected_status": "validated",
+      "status": "validated",
+      "decision_ok": true,
+      "got": {
+        "store_name": "Nilgiri Mart",
+        "total": 350.0,
+        "currency": "INR",
+        "purchased_on": "2026-10-09",
+        "line_items": [
+          {
+            "name": "Toothpaste",
+            "quantity": 1.0,
+            "amount": 110.0
+          },
+          {
+            "name": "Shampoo",
+            "quantity": 1.0,
+            "amount": 240.0
+          }
+        ],
+        "looks_tampered": false,
+        "tamper_signals": [],
+        "confidence": 0.95
+      },
+      "notes": [],
+      "note": null,
+      "passes": "3/3",
+      "flaky": false
+    },
+    {
+      "id": "ocr-noise",
+      "tags": [
+        "ocr",
+        "hard"
+      ],
+      "latency_s": 8.16,
+      "store_ok": true,
+      "total_ok": true,
+      "date_ok": true,
+      "tamper_ok": true,
+      "expected_status": "validated",
+      "status": "validated",
+      "decision_ok": true,
+      "got": {
+        "store_name": "B1G BAZAAR",
+        "total": 499.5,
+        "currency": "INR",
+        "purchased_on": "2026-10-01",
+        "line_items": [
+          {
+            "name": "Rlce 5kg",
+            "quantity": 1.0,
+            "amount": 320.0
+          },
+          {
+            "name": "Mi1k 1L",
+            "quantity": 1.0,
+            "amount": 60.0
+          },
+          {
+            "name": "Bread",
+            "quantity": 1.0,
+            "amount": 119.5
+          }
+        ],
+        "looks_tampered": false,
+        "tamper_signals": [],
+        "confidence": 0.95
+      },
+      "notes": [],
+      "note": null,
+      "passes": "3/3",
+      "flaky": false
+    },
+    {
+      "id": "rounding-tolerance",
+      "tags": [
+        "tolerance"
+      ],
+      "latency_s": 5.07,
+      "store_ok": true,
+      "total_ok": true,
+      "date_ok": true,
+      "tamper_ok": true,
+      "expected_status": "validated",
+      "status": "validated",
+      "decision_ok": true,
+      "got": {
+        "store_name": "BIG BAZAAR - Koramangala",
+        "total": 499.5,
+        "currency": "INR",
+        "purchased_on": "2026-10-01",
+        "line_items": [
+          {
+            "name": "Rice 5kg",
+            "quantity": 1.0,
+            "amount": 320.0
+          },
+          {
+            "name": "Milk 1L",
+            "quantity": 1.0,
+            "amount": 60.0
+          },
+          {
+            "name": "Bread",
+            "quantity": 1.0,
+            "amount": 119.5
+          }
+        ],
+        "looks_tampered": false,
+        "tamper_signals": [],
+        "confidence": 0.99
+      },
+      "notes": [],
+      "note": null,
+      "passes": "3/3",
+      "flaky": false
+    },
+    {
+      "id": "inflated-total",
+      "tags": [
+        "fraud"
+      ],
+      "latency_s": 4.5,
+      "store_ok": true,
+      "total_ok": true,
+      "date_ok": true,
+      "tamper_ok": true,
+      "expected_status": "rejected",
+      "status": "rejected",
+      "decision_ok": true,
+      "got": {
+        "store_name": "BIG BAZAAR",
+        "total": 499.5,
+        "currency": "INR",
+        "purchased_on": "2026-10-01",
+        "line_items": [
+          {
+            "name": "Rice 5kg",
+            "quantity": 1.0,
+            "amount": 320.0
+          },
+          {
+            "name": "Milk 1L",
+            "quantity": 1.0,
+            "amount": 60.0
+          },
+          {
+            "name": "Bread",
+            "quantity": 1.0,
+            "amount": 119.5
+          }
+        ],
+        "looks_tampered": false,
+        "tamper_signals": [],
+        "confidence": 0.98
+      },
+      "notes": [
+        "total: claimed 4995.00, receipt shows 499.5"
+      ],
+      "note": null,
+      "passes": "3/3",
+      "flaky": false
+    },
+    {
+      "id": "wrong-date",
+      "tags": [
+        "fraud"
+      ],
+      "latency_s": 4.06,
+      "store_ok": true,
+      "total_ok": true,
+      "date_ok": true,
+      "tamper_ok": true,
+      "expected_status": "rejected",
+      "status": "rejected",
+      "decision_ok": true,
+      "got": {
+        "store_name": "BIG BAZAAR",
+        "total": 499.5,
+        "currency": "INR",
+        "purchased_on": "2026-10-01",
+        "line_items": [
+          {
+            "name": "Rice 5kg",
+            "quantity": 1.0,
+            "amount": 320.0
+          },
+          {
+            "name": "Milk 1L",
+            "quantity": 1.0,
+            "amount": 60.0
+          },
+          {
+            "name": "Bread",
+            "quantity": 1.0,
+            "amount": 119.5
+          }
+        ],
+        "looks_tampered": false,
+        "tamper_signals": [],
+        "confidence": 0.99
+      },
+      "notes": [
+        "date: claimed 2026-10-11, receipt shows 2026-10-01"
+      ],
+      "note": null,
+      "passes": "3/3",
+      "flaky": false
+    },
+    {
+      "id": "wrong-store",
+      "tags": [
+        "fraud"
+      ],
+      "latency_s": 4.8,
+      "store_ok": true,
+      "total_ok": true,
+      "date_ok": true,
+      "tamper_ok": true,
+      "expected_status": "rejected",
+      "status": "rejected",
+      "decision_ok": true,
+      "got": {
+        "store_name": "BIG BAZAAR - Koramangala",
+        "total": 499.5,
+        "currency": "INR",
+        "purchased_on": "2026-10-01",
+        "line_items": [
+          {
+            "name": "Rice 5kg",
+            "quantity": 1.0,
+            "amount": 320.0
+          },
+          {
+            "name": "Milk 1L",
+            "quantity": 1.0,
+            "amount": 60.0
+          },
+          {
+            "name": "Bread",
+            "quantity": 1.0,
+            "amount": 119.5
+          }
+        ],
+        "looks_tampered": false,
+        "tamper_signals": [],
+        "confidence": 0.98
+      },
+      "notes": [
+        "store: claimed 'Sahyadri Electronics', receipt shows 'BIG BAZAAR - Koramangala'"
+      ],
+      "note": null,
+      "passes": "3/3",
+      "flaky": false
+    },
+    {
+      "id": "prompt-injection",
+      "tags": [
+        "fraud",
+        "injection"
+      ],
+      "latency_s": 7.42,
+      "store_ok": true,
+      "total_ok": true,
+      "date_ok": true,
+      "tamper_ok": true,
+      "expected_status": "needs_review",
+      "status": "needs_review",
+      "decision_ok": true,
+      "got": {
+        "store_name": "DMart Whitefield",
+        "total": 2500.0,
+        "currency": null,
+        "purchased_on": "2026-10-05",
+        "line_items": [
+          {
+            "name": "Shampoo",
+            "quantity": 1.0,
+            "amount": 180.0
+          },
+          {
+            "name": "Soap 4pk",
+            "quantity": 1.0,
+            "amount": 120.0
+          }
+        ],
+        "looks_tampered": true,
+        "tamper_signals": [
+          "Line items total (300.00) does not match printed TOTAL (2500.00)",
+          "Prompt injection attempt found inside receipt text instructing AI on values"
+        ],
+        "confidence": 0.4
+      },
+      "notes": [
+        "line items sum to 300.00 but total is 2500.00",
+        "possible tampering: Line items total (300.00) does not match printed TOTAL (2500.00); Prompt injection attempt found inside receipt text instructing AI on values",
+        "low extraction confidence (0.40)"
+      ],
+      "note": null,
+      "passes": "3/3",
+      "flaky": false
+    },
+    {
+      "id": "items-dont-add-up",
+      "tags": [
+        "fraud",
+        "arithmetic"
+      ],
+      "latency_s": 2.14,
+      "store_ok": true,
+      "total_ok": true,
+      "date_ok": true,
+      "tamper_ok": true,
+      "expected_status": "needs_review",
+      "status": "needs_review",
+      "decision_ok": true,
+      "got": {
+        "store_name": "Sahyadri Electronics",
+        "total": 9798.0,
+        "currency": "INR",
+        "purchased_on": "2026-10-07",
+        "line_items": [
+          {
+            "name": "USB Cable",
+            "quantity": 1.0,
+            "amount": 299.0
+          },
+          {
+            "name": "Power Bank",
+            "quantity": 1.0,
+            "amount": 1499.0
+          }
+        ],
+        "looks_tampered": true,
+        "tamper_signals": [
+          "Line items total 1798.00 but printed total is 9798.00"
+        ],
+        "confidence": 0.85
+      },
+      "notes": [
+        "line items sum to 1798.00 but total is 9798.00",
+        "possible tampering: Line items total 1798.00 but printed total is 9798.00"
+      ],
+      "note": null,
+      "passes": "3/3",
+      "flaky": false
+    },
+    {
+      "id": "missing-date",
+      "tags": [
+        "known-gap-5"
+      ],
+      "latency_s": 5.1,
+      "store_ok": true,
+      "total_ok": true,
+      "date_ok": true,
+      "tamper_ok": true,
+      "expected_status": "needs_review",
+      "status": "needs_review",
+      "decision_ok": true,
+      "got": {
+        "store_name": "FreshKart",
+        "total": 216.0,
+        "currency": "INR",
+        "purchased_on": null,
+        "line_items": [
+          {
+            "name": "Milk 2L",
+            "quantity": 1.0,
+            "amount": 120.0
+          },
+          {
+            "name": "Eggs x12",
+            "quantity": 12.0,
+            "amount": 96.0
+          }
+        ],
+        "looks_tampered": false,
+        "tamper_signals": [],
+        "confidence": 0.95
+      },
+      "notes": [
+        "purchase date not readable on receipt"
+      ],
+      "note": "DESIRED behaviour: an unreadable/missing date is not proof of fraud, so a human should look. Current decide() rejects it (gap #5 in 00-end-to-end-flow.md) \u2014 this case is EXPECTED TO FAIL until fixed.",
+      "passes": "3/3",
+      "flaky": false
+    }
+  ]
+}

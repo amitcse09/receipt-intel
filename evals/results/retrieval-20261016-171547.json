@@ -1,0 +1,793 @@
+{
+  "config": {
+    "suite": "retrieval",
+    "llm": "gemini:gemini-3.5-flash-lite",
+    "embedding_model": "gemini-embedding-001"
+  },
+  "summary": {
+    "vector.hit@2": 1.0,
+    "vector.hit@4": 1.0,
+    "vector.recall@2": 0.979,
+    "vector.recall@4": 1.0,
+    "vector.mrr": 1.0,
+    "keyword.hit@2": 0.938,
+    "keyword.hit@4": 1.0,
+    "keyword.recall@2": 0.885,
+    "keyword.recall@4": 0.948,
+    "keyword.mrr": 0.802,
+    "hybrid.hit@2": 1.0,
+    "hybrid.hit@4": 1.0,
+    "hybrid.recall@2": 0.948,
+    "hybrid.recall@4": 1.0,
+    "hybrid.mrr": 1.0
+  },
+  "cases": [
+    {
+      "id": "synonym-beer",
+      "tags": [
+        "synonym"
+      ],
+      "relevant": [
+        "eligibility > Excluded categories"
+      ],
+      "vector": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "eligibility > Excluded categories",
+          "eligibility > Eligible purchases",
+          "disputes-and-fraud > Returns and refunds",
+          "cashback-rates > Caps"
+        ]
+      },
+      "keyword": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 0.5,
+        "top4": [
+          "cashback-rates > Rates by membership tier",
+          "eligibility > Excluded categories",
+          "disputes-and-fraud > Returns and refunds",
+          "cashback-rates > Caps"
+        ]
+      },
+      "hybrid": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "eligibility > Excluded categories",
+          "disputes-and-fraud > Returns and refunds",
+          "cashback-rates > Rates by membership tier",
+          "eligibility > Eligible purchases"
+        ]
+      }
+    },
+    {
+      "id": "synonym-cigarettes",
+      "tags": [
+        "synonym"
+      ],
+      "relevant": [
+        "eligibility > Excluded categories"
+      ],
+      "vector": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "eligibility > Excluded categories",
+          "eligibility > Eligible purchases",
+          "disputes-and-fraud > Returns and refunds",
+          "cashback-rates > Rates by membership tier"
+        ]
+      },
+      "keyword": {
+        "hit@2": 0.0,
+        "hit@4": 1.0,
+        "recall@2": 0.0,
+        "recall@4": 1.0,
+        "mrr": 0.3333333333333333,
+        "top4": [
+          "cashback-rates > Rates by membership tier",
+          "eligibility > Eligible purchases",
+          "eligibility > Excluded categories",
+          "cashback-rates > Payout"
+        ]
+      },
+      "hybrid": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "eligibility > Excluded categories",
+          "eligibility > Eligible purchases",
+          "cashback-rates > Rates by membership tier",
+          "disputes-and-fraud > Returns and refunds"
+        ]
+      }
+    },
+    {
+      "id": "synonym-petrol",
+      "tags": [
+        "synonym"
+      ],
+      "relevant": [
+        "eligibility > Excluded categories"
+      ],
+      "vector": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "eligibility > Excluded categories",
+          "eligibility > Eligible purchases",
+          "cashback-rates > Payout",
+          "cashback-rates > Caps"
+        ]
+      },
+      "keyword": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 0.5,
+        "top4": [
+          "cashback-rates > Rates by membership tier",
+          "eligibility > Excluded categories",
+          "disputes-and-fraud > Returns and refunds",
+          "cashback-rates > Caps"
+        ]
+      },
+      "hybrid": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "eligibility > Excluded categories",
+          "cashback-rates > Rates by membership tier",
+          "eligibility > Eligible purchases",
+          "cashback-rates > Payout"
+        ]
+      }
+    },
+    {
+      "id": "exact-code",
+      "tags": [
+        "exact-token"
+      ],
+      "relevant": [
+        "disputes-and-fraud > Appealing a rejected claim"
+      ],
+      "vector": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "disputes-and-fraud > Appealing a rejected claim",
+          "claims > Limits",
+          "claims > Submission window",
+          "claims > Processing time"
+        ]
+      },
+      "keyword": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "disputes-and-fraud > Appealing a rejected claim"
+        ]
+      },
+      "hybrid": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "disputes-and-fraud > Appealing a rejected claim",
+          "claims > Limits",
+          "claims > Submission window",
+          "claims > Processing time"
+        ]
+      }
+    },
+    {
+      "id": "appeal-window",
+      "tags": [
+        "number"
+      ],
+      "relevant": [
+        "disputes-and-fraud > Appealing a rejected claim"
+      ],
+      "vector": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "disputes-and-fraud > Appealing a rejected claim",
+          "claims > Submission window",
+          "claims > Processing time",
+          "claims > Limits"
+        ]
+      },
+      "keyword": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "disputes-and-fraud > Appealing a rejected claim",
+          "claims > Submission window",
+          "claims > Limits"
+        ]
+      },
+      "hybrid": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "disputes-and-fraud > Appealing a rejected claim",
+          "claims > Submission window",
+          "claims > Limits",
+          "claims > Processing time"
+        ]
+      }
+    },
+    {
+      "id": "diwali-window",
+      "tags": [
+        "exception"
+      ],
+      "relevant": [
+        "claims > Submission window"
+      ],
+      "vector": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "claims > Submission window",
+          "claims > Limits",
+          "claims > Receipt requirements",
+          "eligibility > Minimum receipt value"
+        ]
+      },
+      "keyword": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "claims > Submission window",
+          "disputes-and-fraud > Fraud",
+          "disputes-and-fraud > Appealing a rejected claim",
+          "claims > Limits"
+        ]
+      },
+      "hybrid": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "claims > Submission window",
+          "claims > Limits",
+          "claims > Receipt requirements",
+          "eligibility > Minimum receipt value"
+        ]
+      }
+    },
+    {
+      "id": "normal-window",
+      "tags": [
+        "number"
+      ],
+      "relevant": [
+        "claims > Submission window"
+      ],
+      "vector": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "claims > Submission window",
+          "claims > Processing time",
+          "claims > Limits",
+          "disputes-and-fraud > Appealing a rejected claim"
+        ]
+      },
+      "keyword": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 0.5,
+        "top4": [
+          "claims > Limits",
+          "claims > Submission window",
+          "claims > Processing time",
+          "disputes-and-fraud > Appealing a rejected claim"
+        ]
+      },
+      "hybrid": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "claims > Submission window",
+          "claims > Limits",
+          "claims > Processing time",
+          "disputes-and-fraud > Appealing a rejected claim"
+        ]
+      }
+    },
+    {
+      "id": "gold-partner",
+      "tags": [
+        "multi-chunk"
+      ],
+      "relevant": [
+        "cashback-rates > Rates by membership tier",
+        "cashback-rates > Partner store bonus"
+      ],
+      "vector": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "cashback-rates > Rates by membership tier",
+          "cashback-rates > Partner store bonus",
+          "cashback-rates > Caps",
+          "eligibility > Eligible purchases"
+        ]
+      },
+      "keyword": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 0.5,
+        "recall@4": 0.5,
+        "mrr": 1.0,
+        "top4": [
+          "cashback-rates > Rates by membership tier",
+          "cashback-rates > Caps",
+          "cashback-rates > Payout",
+          "eligibility > Eligible purchases"
+        ]
+      },
+      "hybrid": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 0.5,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "cashback-rates > Rates by membership tier",
+          "cashback-rates > Caps",
+          "cashback-rates > Partner store bonus",
+          "eligibility > Eligible purchases"
+        ]
+      }
+    },
+    {
+      "id": "platinum-cap",
+      "tags": [
+        "multi-chunk",
+        "reasoning",
+        "hard"
+      ],
+      "relevant": [
+        "cashback-rates > Rates by membership tier",
+        "cashback-rates > Partner store bonus",
+        "cashback-rates > Caps"
+      ],
+      "vector": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 0.6666666666666666,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "cashback-rates > Rates by membership tier",
+          "cashback-rates > Partner store bonus",
+          "cashback-rates > Caps",
+          "eligibility > Eligible purchases"
+        ]
+      },
+      "keyword": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 0.6666666666666666,
+        "recall@4": 0.6666666666666666,
+        "mrr": 1.0,
+        "top4": [
+          "cashback-rates > Rates by membership tier",
+          "cashback-rates > Caps",
+          "eligibility > Excluded categories",
+          "claims > Limits"
+        ]
+      },
+      "hybrid": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 0.6666666666666666,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "cashback-rates > Rates by membership tier",
+          "cashback-rates > Caps",
+          "cashback-rates > Partner store bonus",
+          "eligibility > Excluded categories"
+        ]
+      }
+    },
+    {
+      "id": "min-value",
+      "tags": [
+        "number"
+      ],
+      "relevant": [
+        "eligibility > Minimum receipt value"
+      ],
+      "vector": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "eligibility > Minimum receipt value",
+          "claims > Limits",
+          "claims > Receipt requirements",
+          "claims > Submission window"
+        ]
+      },
+      "keyword": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 0.5,
+        "top4": [
+          "claims > Limits",
+          "eligibility > Minimum receipt value",
+          "claims > Submission window",
+          "disputes-and-fraud > Appealing a rejected claim"
+        ]
+      },
+      "hybrid": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "eligibility > Minimum receipt value",
+          "claims > Limits",
+          "claims > Submission window",
+          "claims > Receipt requirements"
+        ]
+      }
+    },
+    {
+      "id": "partial-return",
+      "tags": [
+        "paraphrase"
+      ],
+      "relevant": [
+        "disputes-and-fraud > Returns and refunds"
+      ],
+      "vector": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "disputes-and-fraud > Returns and refunds",
+          "eligibility > Excluded categories",
+          "cashback-rates > Caps",
+          "cashback-rates > Rates by membership tier"
+        ]
+      },
+      "keyword": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "disputes-and-fraud > Returns and refunds",
+          "eligibility > Eligible purchases",
+          "cashback-rates > Caps",
+          "cashback-rates > Payout"
+        ]
+      },
+      "hybrid": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "disputes-and-fraud > Returns and refunds",
+          "cashback-rates > Caps",
+          "eligibility > Excluded categories",
+          "eligibility > Eligible purchases"
+        ]
+      }
+    },
+    {
+      "id": "weekly-limit",
+      "tags": [
+        "number"
+      ],
+      "relevant": [
+        "claims > Limits"
+      ],
+      "vector": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "claims > Limits",
+          "claims > Submission window",
+          "claims > Processing time",
+          "disputes-and-fraud > Appealing a rejected claim"
+        ]
+      },
+      "keyword": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "claims > Limits",
+          "claims > Submission window",
+          "claims > Processing time",
+          "disputes-and-fraud > Appealing a rejected claim"
+        ]
+      },
+      "hybrid": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "claims > Limits",
+          "claims > Submission window",
+          "claims > Processing time",
+          "disputes-and-fraud > Appealing a rejected claim"
+        ]
+      }
+    },
+    {
+      "id": "withdraw",
+      "tags": [
+        "number"
+      ],
+      "relevant": [
+        "cashback-rates > Payout"
+      ],
+      "vector": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "cashback-rates > Payout",
+          "claims > Processing time",
+          "disputes-and-fraud > Returns and refunds",
+          "claims > Submission window"
+        ]
+      },
+      "keyword": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "cashback-rates > Payout",
+          "disputes-and-fraud > Returns and refunds"
+        ]
+      },
+      "hybrid": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "cashback-rates > Payout",
+          "disputes-and-fraud > Returns and refunds",
+          "claims > Processing time",
+          "claims > Submission window"
+        ]
+      }
+    },
+    {
+      "id": "repeat-fraud",
+      "tags": [
+        "paraphrase"
+      ],
+      "relevant": [
+        "disputes-and-fraud > Fraud"
+      ],
+      "vector": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "disputes-and-fraud > Fraud",
+          "claims > Limits",
+          "disputes-and-fraud > Appealing a rejected claim",
+          "disputes-and-fraud > Returns and refunds"
+        ]
+      },
+      "keyword": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "disputes-and-fraud > Fraud",
+          "claims > Limits",
+          "eligibility > Minimum receipt value",
+          "claims > Submission window"
+        ]
+      },
+      "hybrid": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "disputes-and-fraud > Fraud",
+          "claims > Limits",
+          "eligibility > Minimum receipt value",
+          "claims > Submission window"
+        ]
+      }
+    },
+    {
+      "id": "business-gst",
+      "tags": [
+        "paraphrase"
+      ],
+      "relevant": [
+        "eligibility > Who can claim"
+      ],
+      "vector": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "eligibility > Who can claim",
+          "disputes-and-fraud > Returns and refunds",
+          "eligibility > Excluded categories",
+          "claims > Limits"
+        ]
+      },
+      "keyword": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "eligibility > Who can claim",
+          "claims > Limits",
+          "claims > Processing time",
+          "claims > Submission window"
+        ]
+      },
+      "hybrid": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "eligibility > Who can claim",
+          "claims > Limits",
+          "disputes-and-fraud > Returns and refunds",
+          "eligibility > Excluded categories"
+        ]
+      }
+    },
+    {
+      "id": "online-non-partner",
+      "tags": [
+        "reasoning"
+      ],
+      "relevant": [
+        "eligibility > Eligible purchases"
+      ],
+      "vector": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "eligibility > Eligible purchases",
+          "cashback-rates > Partner store bonus",
+          "eligibility > Excluded categories",
+          "disputes-and-fraud > Returns and refunds"
+        ]
+      },
+      "keyword": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 0.5,
+        "top4": [
+          "cashback-rates > Partner store bonus",
+          "eligibility > Eligible purchases",
+          "cashback-rates > Rates by membership tier",
+          "cashback-rates > Caps"
+        ]
+      },
+      "hybrid": {
+        "hit@2": 1.0,
+        "hit@4": 1.0,
+        "recall@2": 1.0,
+        "recall@4": 1.0,
+        "mrr": 1.0,
+        "top4": [
+          "eligibility > Eligible purchases",
+          "cashback-rates > Partner store bonus",
+          "eligibility > Excluded categories",
+          "cashback-rates > Caps"
+        ]
+      }
+    }
+  ]
+}
